@@ -1,19 +1,29 @@
+h1. Scala Dataflow Concurrency DSL
 
-  h2. Example 1
+h1. Description
+
+Implements Oz-style dataflow (single assignment) variables and streams as well as lightweight (event-based) processes/threads. 
+Currently implemented on top of Scala Actors, could make use of the new delimited continuations support in upcoming Scala 2.8. 
+
+h1. Examples 
+
+h2. Example 1
   
-  <pre name="code" class="scala">
-  // =======================================
-  // This example is rom Oz wikipedia page: http://en.wikipedia.org/wiki/Oz_(programming_language)
+h3. Example in Oz
+This example is rom Oz wikipedia page: http://en.wikipedia.org/wiki/Oz_(programming_language)
 
-  /* Example in Oz
+<pre name="code" class="scala">
   thread 
     Z = X+Y     % will wait until both X and Y are bound to a value.
     {Browse Z}  % shows the value of Z.
   end
   thread X = 40 end
   thread Y = 2 end
-  */
+</pre>
+  
+h3. Example in Scala
 
+<pre name="code" class="scala">
   import DataFlow._
   val x, y, z = new DataFlowVariable[Int]
   thread {
@@ -23,13 +33,14 @@
   }
   thread { x << 40 }
   thread { y << 2 }
-  </pre>
+</pre>
 
-  h2. Example 2
+h2. Example 2
   
-  <pre name="code" class="scala">
-  // =======================================
-  /* Example in Oz
+h3. Example in Oz
+
+<pre name="code" class="scala">
+  h3. Example in Oz
   fun {Ints N Max}
     if N == Max then nil
     else 
@@ -48,8 +59,11 @@
     thread Y = {Sum 0 X} end
     {Browse Y}
   end
-  */
+</pre>
 
+h3. Example in Scala
+
+<pre name="code" class="scala">
   import DataFlow._
 
   def ints(n: Int, max: Int): List[Int] =
@@ -69,13 +83,12 @@
   thread { println("List of sums: " + y()); System.exit(0) }
   </pre>
 
-  h2. Example 3
+h2. Example 3
   
-  <pre name="code" class="scala">
-  // =======================================
-  // Using DataFlowStream and foldLeft to calculate sum
-  
-  /* Example in Oz
+h3. Example in Oz
+Using DataFlowStream and foldLeft to calculate sum
+
+<pre name="code" class="scala">
   fun {Ints N Max}
     if N == Max then nil
     else 
@@ -94,8 +107,11 @@
     thread Y = {Sum 0 X} end
     {Browse Y}
   end
-  */
+</pre>
 
+h3. Example in Scala
+
+<pre name="code" class="scala">
   import DataFlow._
 
   def ints(n: Int, max: Int, stream: DataFlowStream[Int]): Unit = if (n != max) { 
@@ -124,14 +140,14 @@
     println("Sum: " + producer.map(x => x * x).foldLeft(0)(_ + _)) 
     System.exit(0)
   }
-  </pre>
+</pre>
 
 h2. Example 4
+Using DataFlowStream and recursive function to calculate sum
   
-  // =======================================
-  // Using DataFlowStream and recursive function to calculate sum
-  
-  /* Example in Oz
+h3. Example in Oz
+
+<pre name="code" class="scala">
   fun {Ints N Max}
     if N == Max then nil
     else 
@@ -150,7 +166,11 @@ h2. Example 4
     thread Y = {Sum 0 X} end
     {Browse Y}
   end
-  */
+</pre>
+
+h3. Example in Scala
+
+<pre name="code" class="scala">
 
   import DataFlow._
 
@@ -177,18 +197,20 @@ h2. Example 4
   thread { ints(0, 1000, producer) }
   thread { sum(0, producer, consumer) }
   thread { printSum(consumer) }
-  </pre>
+</pre>
 
 h2. Example 5
+Shows how to bind threads to values to be able to interact with them (exit etc.)
   
-  <pre name="code" class="scala">
+h3. Example in Scala
+
+<pre name="code" class="scala">
   // =======================================
   import DataFlow._
 
   // create four 'Int' data flow variables
   val x, y, z, v = new DataFlowVariable[Int]
 
-  // shows binding threads to values to be able to interact with them
   val main = thread {
     println("Thread 'main'")
    
@@ -229,6 +251,6 @@ h2. Example 5
   main ! 'exit
   setY ! 'exit
   setV ! 'exit
-  </pre>
+</pre>
 
 
