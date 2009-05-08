@@ -2,7 +2,7 @@ h1. Scala Dataflow Concurrency DSL
 
 h1. Description
 
-Implements "Oz-style":http://en.wikipedia.org/wiki/Oz_(programming_language "dataflow concurrency":http://www.mozart-oz.org/documentation/tutorial/node8.html#chapter.concurrency through dataflow (single assignment) variables and streams as well as lightweight (event-based) processes/threads. 
+Implements "Oz-style dataflow concurrency":http://www.mozart-oz.org/documentation/tutorial/node8.html#chapter.concurrency through dataflow (single assignment) variables and streams as well as lightweight (event-based) processes/threads. 
 
 Currently implemented on top of "Scala Actors":http://scala-lang.org, but could make use of the new "delimited continuations":http://blog.richdougherty.com/2009/02/delimited-continuations-in-scala_24.html support in upcoming Scala 2.8. 
 
