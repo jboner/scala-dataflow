@@ -128,7 +128,6 @@ h3. Example in Scala
   thread {
     z << x() + y()
     println("z = " + z())
-    System.exit(0)
   }
   thread { x << 40 }
   thread { y << 2 }
@@ -180,7 +179,7 @@ h3. Example in Scala
 
   thread { x << ints(0, 1000) }
   thread { y << sum(0, x()) }
-  thread { println("List of sums: " + y()); System.exit(0) }
+  thread { println("List of sums: " + y()) }
   </pre>
 
 h2. Example 3
@@ -239,7 +238,6 @@ h3. Example in Scala
   thread { 
     Thread.sleep(1000)
     println("Sum: " + producer.map(x => x * x).foldLeft(0)(_ + _)) 
-    System.exit(0)
   }
 </pre>
 
