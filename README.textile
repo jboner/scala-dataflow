@@ -21,7 +21,7 @@ x()
 
 3. Bind Dataflow Variable
 <pre>
-x &lt;&lt; 3 
+x << 3 
 </pre>
 
 A Dataflow Variable can only be bound once. Subsequent attempts to bind the variable will throw an exception. 
@@ -48,7 +48,7 @@ producer()
 
 3. Add an element to the stream
 <pre>
-producer &lt;&lt;&lt; 3 
+producer <<< 3 
 </pre>
 
 h2. Threads
