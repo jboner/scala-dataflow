@@ -2,8 +2,12 @@ h1. Scala Dataflow Concurrency DSL
 
 h1. Description
 
-Implements Oz-style dataflow (single assignment) variables and streams as well as lightweight (event-based) processes/threads. 
-Currently implemented on top of Scala Actors, could make use of the new delimited continuations support in upcoming Scala 2.8. 
+Implements "Oz-style":http://en.wikipedia.org/wiki/Oz_(programming_language dataflow (single assignment) variables and streams as well as lightweight (event-based) processes/threads. 
+Currently implemented on top of "Scala Actors":http://scala-lang.org, but could make use of the new "delimited continuations":http://blog.richdougherty.com/2009/02/delimited-continuations-in-scala_24.html support in upcoming Scala 2.8. 
+
+The best way to learn how to program with dataflow variables is to read the fantastic book Concepts, Techniques, and Models of Computer Programming. By Peter Van Roy and Seif Haridi.
+
+TODO: Unification of dataflow variables. 
 
 h2. Dataflow Variable 
 
@@ -70,6 +74,8 @@ t ! 'exit // shut down the thread
 </pre>
   
 h1. Examples 
+
+Most of these examples are taken from the "Oz wikipedia page":http://en.wikipedia.org/wiki/Oz_(programming_language).
 
 To run these examples:
   
