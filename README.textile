@@ -99,8 +99,8 @@ Note: Do not try to run the Oz version, it is only there for reference.
 
 h2. Example 1
   
-This example is from Oz wikipedia page: http://en.wikipedia.org/wiki/Oz_(programming_language)
-The "Hello World" of dataflow concurrency. 
+This example is from Oz wikipedia page: http://en.wikipedia.org/wiki/Oz_(programming_language).
+Sort of the "Hello World" of dataflow concurrency. 
 
 h3. Example in Oz
 
@@ -129,9 +129,9 @@ h3. Example in Scala
 
 h2. Example 2
   
-h3. Example in Oz
-
 Using DataFlowVariable and recursion to calculate sum.
+
+h3. Example in Oz
 
 <pre name="code" class="scala">
   fun {Ints N Max}
@@ -178,9 +178,9 @@ h3. Example in Scala
 
 h2. Example 3
   
-h3. Example in Oz
+Using DataFlowStream and high-order functions to calculate sum.
 
-Using DataFlowStream and high-order functions to calculate sum
+h3. Example in Oz
 
 <pre name="code" class="scala">
   fun {Ints N Max}
@@ -238,7 +238,7 @@ h3. Example in Scala
 
 h2. Example 4
 
-Using DataFlowStream and recursive functions to calculate sum
+Using DataFlowStream and recursive functions to calculate sum.
   
 h3. Example in Oz
 
@@ -296,7 +296,7 @@ h3. Example in Scala
 
 h2. Example 5
 
-Shows how to shutdown dataflow variables and bind threads to values to be able to interact with them (exit etc.)
+Shows how to shutdown dataflow variables and bind threads to values to be able to interact with them (exit etc.).
   
 h3. Example in Scala
 
