@@ -15,16 +15,19 @@ h2. Dataflow Variable
 Dataflow Variable defines three different operations: 
 
 1. Define a Dataflow Variable
+
 <pre>
 val x = new DataFlowVariable[Int]
 </pre>
 
 2. Wait for Dataflow Variable to be bound
+
 <pre>
 x()
 </pre>
 
 3. Bind Dataflow Variable
+
 <pre>
 x << 3 
 </pre>
@@ -42,16 +45,19 @@ h2. Dataflow Streams
 Dataflow streams work like a BoundedQueue in Java. You can add an item to the tail and try to grab one from the head. Threads will block until data is available. 
 
 1. Define a Dataflow Stream
+
 <pre>
 val producer = new DataFlowStream[Int]
 </pre>
 
 2. Wait for an element in the stream to be available
+
 <pre>
 producer()
 </pre>
 
 3. Add an element to the stream
+
 <pre>
 producer <<< 3 
 </pre>
@@ -81,12 +87,14 @@ Most of these examples are taken from the "Oz wikipedia page":http://en.wikipedi
 To run these examples:
   
 1. Compile: 
+
 <pre>
 cd src
 scalac -cp . DataFlow.scala
 </pre>
 
 2. Start REPL
+
 <pre>
 scala -cp .
 </pre>
